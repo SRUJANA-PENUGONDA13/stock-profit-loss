@@ -1,0 +1,68 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+.profit-loss {
+  text-align: center;
+  margin-bottom: 8rem;
+}
+.profit-loss h1 {
+  margin-top: 4rem;
+}
+
+.input-label {
+  font-size: larger;
+  color: gray;
+  font-weight: bold;
+  width: 256px;
+}
+.input-text {
+  font-size: 14px;
+  outline: #fff;
+  padding: 0.6rem 1rem;
+  margin: 1rem;
+  border: 2px solid gray;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 258px;
+}
+.btn-check {
+  background: gray;
+  border: none;
+  color: #fff;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  font-size: large;
+  cursor: pointer;
+  outline: #fff;
+  margin: 1rem auto;
+  display: block;
+}
+footer {
+  text-align: center;
+  margin-bottom: 0px;
+  height: 15vh;
+  color: white;
+  background-color: gray;
+}
+footer ul {
+  list-style: none;
+  padding-inline-start: 0px !important;
+}
+footer li {
+  display: inline;
+}
+footer li a {
+  text-decoration: none;
+}
+footer li a i {
+  color: white;
+  padding: 0px 1.5rem;
+  margin-bottom: 0px;
+}
+footer p {
+  font-size: larger;
+  font-weight: bold;
+  padding-top: 10px !important;
+}
