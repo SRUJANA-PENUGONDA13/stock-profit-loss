@@ -3,25 +3,32 @@ import "./App.css";
 import Footer from "./Footer";
 
 const App = () => {
-  var [initialPrice, setInitialPrice] = useState(0);
-  var [stockQuantity, setStockQuantity] = useState(0);
-  var [stockCurrentPrice, setStockCurrentPrice] = useState(0);
+  var [stockIntialPrice, setInitialPrice] = useState("");
+  var [stockQuantity, setStockQuantity] = useState("");
+  var [stockCurrentPrice, setStockCurrentPrice] = useState("");
   var [output, setOutput] = useState("");
 
   const calculateProfitOrLoss = () => {
-    if (stockQuantity < 0 || stockCurrentPrice < 0 || initialPrice < 0) {
+    var quantity = parseInt(stockQuantity);
+    var currentPrice = parseInt(stockCurrentPrice);
+    var initialPrice = parseInt(stockIntialPrice);
+    if (
+      quantity < 0 ||
+      currentPrice < 0 ||
+      initialPrice < 0 ||
+      Number.isNaN(quantity) ||
+      Number.isNaN(currentPrice) ||
+      Number.isNaN(initialPrice)
+    ) {
       setOutput("Please provide valid inputs");
     } else {
-      var stockResult =
-        parseInt(stockCurrentPrice) * parseInt(stockQuantity) -
-        parseInt(initialPrice) * parseInt(stockQuantity);
-      var actualResult = parseInt(initialPrice) * parseInt(stockQuantity);
+      var stockResult = currentPrice * quantity - initialPrice * quantity;
+      var actualResult = initialPrice * quantity;
       if (stockResult == 0) {
         setOutput("No pain no gain and no gain no pain");
       } else if (stockResult > 0) {
         var profitPercent =
           parseInt(stockResult * 100) / parseInt(actualResult);
-        console.log(profitPercent);
         setOutput(
           "Hey, the profit is " +
             stockResult +
@@ -48,6 +55,7 @@ const App = () => {
           type="number"
           className="input-text"
           name="initial-price"
+          min="0"
           onChange={(event) => setInitialPrice(event.target.value)}
         ></input>
         <label className="input-label" for="stock-quantity">
@@ -57,6 +65,7 @@ const App = () => {
           type="number"
           className="input-text"
           name="stock-quantity"
+          min="0"
           onChange={(event) => setStockQuantity(event.target.value)}
         ></input>
         <label className="input-label" for="stock-current-price">
@@ -66,6 +75,7 @@ const App = () => {
           type="number"
           className="input-text"
           name="stock-current-price"
+          min="0"
           onChange={(event) => setStockCurrentPrice(event.target.value)}
         ></input>
         <button className="btn-check" onClick={() => calculateProfitOrLoss()}>
