@@ -15,10 +15,12 @@ const App = () => {
       var stockResult =
         parseInt(stockCurrentPrice) * parseInt(stockQuantity) -
         parseInt(initialPrice) * parseInt(stockQuantity);
+      var actualResult = parseInt(initialPrice) * parseInt(stockQuantity);
       if (stockResult == 0) {
         setOutput("No pain no gain and no gain no pain");
       } else if (stockResult > 0) {
-        var profitPercent = (stockResult * 100) / parseInt(initialPrice);
+        var profitPercent =
+          parseInt(stockResult * 100) / parseInt(actualResult);
         console.log(profitPercent);
         setOutput(
           "Hey, the profit is " +
@@ -28,7 +30,7 @@ const App = () => {
         );
       } else {
         var loss = Math.abs(stockResult);
-        var lossPercent = (loss * 100) / parseInt(initialPrice);
+        var lossPercent = parseInt(loss * 100) / parseInt(actualResult);
         setOutput(
           "Hey, the loss is " + loss + " and the percent is " + lossPercent
         );
