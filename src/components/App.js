@@ -33,13 +33,16 @@ const App = () => {
           "Hey, the profit is " +
             stockResult +
             " and the percent is " +
-            profitPercent
+            profitPercent.toFixed(2)
         );
       } else {
         var loss = Math.abs(stockResult);
         var lossPercent = parseInt(loss * 100) / parseInt(actualResult);
         setOutput(
-          "Hey, the loss is " + loss + " and the percent is " + lossPercent
+          "Hey, the loss is " +
+            loss +
+            " and the percent is " +
+            lossPercent.toFixed(2)
         );
       }
     }
